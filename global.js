@@ -1,6 +1,10 @@
 // Shared behavior for every page in the portfolio.
 console.log("IT'S ALIVE!");
 
+function $$(selector, context = document) {
+  return Array.from(context.querySelectorAll(selector));
+}
+
 const BASE_PATH =
   location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? '/'
@@ -49,7 +53,7 @@ document.body.insertAdjacentHTML(
   </label>`,
 );
 
-const themeSelect = document.querySelector('.color-scheme select');
+const [themeSelect] = $$('.color-scheme select');
 
 function setColorScheme(colorScheme) {
   document.documentElement.style.setProperty('color-scheme', colorScheme);
