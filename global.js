@@ -82,3 +82,59 @@ form?.addEventListener('submit', (event) => {
 
   location.href = `${form.action}?${parameters.join('&')}`;
 });
+
+// Shared data helpers for the Projects page and home page.
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+    return null;
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!containerElement) {
+    console.error('A projects container is required.');
+    return;
+  }
+
+  containerElement.innerHTML = '';
+
+  if (!Array.isArray(projects) || projects.length === 0) {
+    containerElement.textContent = 'No projects to display.';
+    return;
+  }
+
+  const heading = /^h[1-6]$/.test(headingLevel) ? headingLevel : 'h2';
+  const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (character) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  })[character]);
+
+  for (const project of projects) {
+    const article = document.createElement('article');
+    const title = escapeHTML(project.title || 'Untitled project');
+    const image = escapeHTML(project.image || 'https://vis-society.github.io/labs/2/images/empty.svg');
+    const description = escapeHTML(project.description || 'No description available.');
+
+    article.innerHTML = `
+      <${heading}>${title}</${heading}>
+      <img src="${image}" alt="${title}">
+      <p>${description}</p>
+    `;
+    containerElement.appendChild(article);
+  }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${encodeURIComponent(username)}`);
+}

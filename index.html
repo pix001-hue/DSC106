@@ -6,6 +6,7 @@
     <title>Pingzhang Xu: Personal site and portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="global.js"></script>
+    <script type="module" src="index.js"></script>
 </head>
 <body>
     <main>
@@ -13,6 +14,16 @@
         <p>Hi, my name is Pingzhang Xu. I am a Data Science student at UC San Diego.
             This is my personal website and portfolio.</p>
         <img src="images/photo.jpg" alt="A photo of me">
+
+        <section aria-labelledby="latest-projects-title">
+            <h2 id="latest-projects-title">Latest Projects</h2>
+            <div class="projects"></div>
+        </section>
+
+        <section aria-labelledby="github-stats-title">
+            <h2 id="github-stats-title">GitHub Profile</h2>
+            <div id="profile-stats" aria-live="polite">Loading GitHub statistics...</div>
+        </section>
     </main>
 </body>
 </html>

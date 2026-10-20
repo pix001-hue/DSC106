@@ -2,8 +2,8 @@
   color-scheme: light dark;
   --color-accent: oklch(55% 0.18 255);
   --color-ink: oklch(24% 0.025 255);
-  --color-muted: oklch(48% 0.025 255);
-  --color-line: oklch(86% 0.02 255);
+  --color-muted: color-mix(in oklch, canvastext, canvas 35%);
+  --border-color: oklch(50% 0.1 255 / 40%);
   --color-surface: oklch(98% 0.008 255);
 }
 
@@ -23,7 +23,6 @@ body {
 }
 
 nav {
-  --border-color: oklch(50% 0.1 255 / 40%);
   display: flex;
   flex-wrap: wrap;
   margin-block-end: 2rem;
@@ -204,6 +203,29 @@ form button {
 .projects p {
   margin: 0;
   color: var(--color-muted);
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+#profile-stats dl > div {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75em;
+}
+
+#profile-stats dt {
+  color: var(--color-muted);
+}
+
+#profile-stats dd {
+  margin: 0.25rem 0 0;
+  font-size: 1.75rem;
+  font-weight: 700;
 }
 
 @media (max-width: 38em) {
