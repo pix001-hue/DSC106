@@ -205,6 +205,144 @@ form button {
   color: var(--color-muted);
 }
 
+.project-details {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.project-year {
+  font-family: Baskerville, "Iowan Old Style", serif;
+  font-variant-numeric: oldstyle-nums;
+  font-size: 1.1rem;
+}
+
+.project-explorer {
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  background: color-mix(in oklch, canvas, var(--color-accent) 3%);
+}
+
+.project-explorer > h2 {
+  margin-block-start: 0;
+}
+
+.search-label {
+  display: block;
+  margin-block-end: 0.35rem;
+  font-weight: 650;
+}
+
+.searchBar {
+  box-sizing: border-box;
+  width: min(100%, 38rem);
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.55rem;
+  background: canvas;
+  color: canvastext;
+  font: inherit;
+}
+
+.filter-status {
+  min-height: 1.5em;
+  margin-block: 0.6rem 0;
+  color: var(--color-muted);
+}
+
+.chart-container {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 2rem);
+  margin-block-start: 0.5rem;
+}
+
+#projects-pie-plot {
+  flex: 0 0 min(18rem, 45%);
+  width: min(18rem, 45%);
+  overflow: visible;
+}
+
+#projects-pie-plot path {
+  cursor: pointer;
+  stroke: canvas;
+  stroke-width: 0.8px;
+  transition: opacity 180ms ease, fill 180ms ease;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.45;
+}
+
+#projects-pie-plot path:focus-visible {
+  outline: none;
+  stroke: canvastext;
+  stroke-width: 2px;
+}
+
+.legend {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(auto-fill, minmax(min(9em, 100%), 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.8rem;
+  list-style: none;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+}
+
+.legend-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.45rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.legend-button:hover,
+.legend-button:focus-visible {
+  background: color-mix(in oklch, var(--color), canvas 88%);
+}
+
+.swatch {
+  flex: 0 0 0.9rem;
+  width: 0.9rem;
+  aspect-ratio: 1;
+  border-radius: 0.2rem;
+  background: var(--color);
+}
+
+.legend-button.selected {
+  border-color: var(--color-ink);
+  background: color-mix(in oklch, var(--color-accent), canvas 82%);
+  font-weight: 700;
+}
+
+#projects-pie-plot path.selected {
+  fill: oklch(65% 0.2 25);
+}
+
+@media (max-width: 38em) {
+  .chart-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #projects-pie-plot {
+    flex-basis: auto;
+    width: min(100%, 20rem);
+    align-self: center;
+  }
+}
+
 #profile-stats dl {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));

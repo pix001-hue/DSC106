@@ -129,7 +129,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     article.innerHTML = `
       <${heading}>${title}</${heading}>
       <img src="${image}" alt="${title}">
-      <p>${description}</p>
+      <div class="project-details"><p>${description}</p><p class="project-year">${escapeHTML(project.year ?? 'Year unavailable')}</p></div>
     `;
     containerElement.appendChild(article);
   }
