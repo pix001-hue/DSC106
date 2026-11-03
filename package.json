@@ -1,0 +1,13 @@
+{
+  "name": "dsc106-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "analyze": "elocuent -d . -o meta/loc.csv --spaces 2",
+    "check": "node --check global.js && node --check meta/main.js"
+  },
+  "devDependencies": {
+    "elocuent": "0.0.4"
+  }
+}

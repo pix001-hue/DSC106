@@ -383,3 +383,88 @@ form button {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Lab 6: code statistics and commit exploration. */
+.meta-note { color: var(--color-muted); font-size: 0.9rem; }
+dl.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.stats > div {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+}
+.stats dt { color: var(--color-muted); font-size: 0.9rem; }
+.stats dd { margin: 0.3rem 0 0; font-size: 1.4rem; font-weight: 650; }
+#chart svg { display: block; width: 100%; overflow: visible; }
+#chart .axis { font-size: 13px; color: var(--color-muted); }
+#chart .axis-label { text-anchor: middle; fill: currentColor; font-size: 15px; }
+#chart .gridlines line { stroke: currentColor; stroke-opacity: 0.12; }
+#chart .gridlines .domain { display: none; }
+#chart circle {
+  fill: var(--color-accent);
+  fill-opacity: 0.7;
+  stroke: canvas;
+  stroke-width: 1;
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: transform 180ms ease, fill 180ms ease, fill-opacity 180ms ease;
+}
+#chart circle:hover, #chart circle:focus-visible {
+  fill-opacity: 1;
+  transform: scale(1.35);
+  stroke: canvastext;
+  outline: none;
+}
+#chart circle.selected { fill: #e45b50; }
+#chart .selection {
+  fill: var(--color-accent);
+  fill-opacity: 0.12;
+  stroke: var(--color-accent);
+  stroke-dasharray: 5 3;
+}
+.selection-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+#clear-selection {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.4rem;
+  color: canvastext;
+  background: canvas;
+  font: inherit;
+  cursor: pointer;
+}
+#clear-selection:disabled { opacity: 0.45; cursor: default; }
+dl.info { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1rem; }
+dl.info dt { color: var(--color-muted); }
+dl.info dd { margin: 0; overflow-wrap: anywhere; }
+.tooltip {
+  position: fixed;
+  z-index: 10;
+  box-sizing: border-box;
+  max-width: min(24rem, calc(100vw - 16px));
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.6rem;
+  background: color-mix(in oklch, canvas 95%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 20px #0002;
+  font-size: 0.9rem;
+}
+.tooltip[hidden] { display: none; }
+.tooltip a { color: var(--color-accent); }
+@media (prefers-reduced-motion: reduce) {
+  #chart circle { transition: none; }
+}
+#stats .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 38em) {
+  #stats .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #chart { overflow-x: auto; }
+  #chart svg { min-width: 620px; }
+}
+@media (max-width: 22em) {
+  #stats .stats { grid-template-columns: minmax(0, 1fr); }
+}

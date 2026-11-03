@@ -1,20 +1,17 @@
 // Shared behavior for every page in the portfolio.
-console.log("IT'S ALIVE!");
 
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-const BASE_PATH =
-  location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? '/'
-    : '/DSC106/';
+const BASE_PATH = new URL('.', import.meta.url).pathname;
 
 const pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
   { url: 'contact/', title: 'Contact' },
   { url: 'resume/', title: 'Resume' },
+  { url: 'meta/', title: 'Meta' },
   { url: 'https://github.com/pix001-hue', title: 'GitHub' },
 ];
 
