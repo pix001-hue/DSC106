@@ -120,7 +120,8 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
   for (const project of projects) {
     const article = document.createElement('article');
     const title = escapeHTML(project.title || 'Untitled project');
-    const image = escapeHTML(project.image || 'https://vis-society.github.io/labs/2/images/empty.svg');
+    const imageSource = project.image ? new URL(project.image, new URL('.', import.meta.url)).href : 'https://vis-society.github.io/labs/2/images/empty.svg';
+    const image = escapeHTML(imageSource);
     const description = escapeHTML(project.description || 'No description available.');
 
     article.innerHTML = `
@@ -128,6 +129,19 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       <img src="${image}" alt="${title}">
       <div class="project-details"><p>${description}</p><p class="project-year">${escapeHTML(project.year ?? 'Year unavailable')}</p></div>
     `;
+    if (project.url) {
+      const destination = new URL(project.url, new URL('.', import.meta.url));
+      if (['http:', 'https:'].includes(destination.protocol)) {
+        const link = document.createElement('a');
+        link.href = destination.href;
+        link.textContent = 'View project ↗';
+        if (destination.origin !== location.origin) {
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+        }
+        article.querySelector('.project-details').append(link);
+      }
+    }
     containerElement.appendChild(article);
   }
 }

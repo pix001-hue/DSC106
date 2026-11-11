@@ -1,86 +1,107 @@
 [
   {
+    "title": "Bikewatching: Boston in Motion",
+    "year": 2026,
+    "image": "images/bikewatching.png",
+    "description": "An interactive Mapbox and D3 exploration of Bluebikes rides in Boston and Cambridge during March 2024. Filter by time to compare station traffic, arrivals, and departures.",
+    "url": "https://pix001-hue.github.io/bikewatching/"
+  },
+  {
     "title": "DSC 106 Project 1: Whole Foods Processing",
     "year": 2026,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "An expository visualization comparing food processing levels across Whole Foods, Walmart, and Target using grocery product data."
+    "description": "An expository visualization comparing food processing levels across Whole Foods, Walmart, and Target using grocery product data.",
+    "url": ""
   },
   {
     "title": "DSC 106 Portfolio Website",
     "year": 2026,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A personal website built through the DSC 106 HTML, CSS, and JavaScript labs, with reusable project cards and live GitHub statistics."
+    "description": "A personal website built through the DSC 106 HTML, CSS, and JavaScript labs, with reusable project cards and live GitHub statistics.",
+    "url": "https://pix001-hue.github.io/DSC106/"
   },
   {
     "title": "Neighborhood Mobility Explorer",
     "year": 2025,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A fictional interactive map for comparing transit access, commute time, and bike routes across San Diego neighborhoods. Built with Python, D3, and JavaScript."
+    "description": "A fictional interactive map for comparing transit access, commute time, and bike routes across San Diego neighborhoods. Built with Python, D3, and JavaScript.",
+    "url": ""
   },
   {
     "title": "Study Space Finder",
     "year": 2025,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A prototype that helps students find a study space based on noise level, available seats, and walking distance. Built with HTML, CSS, and JavaScript."
+    "description": "A prototype that helps students find a study space based on noise level, available seats, and walking distance. Built with HTML, CSS, and JavaScript.",
+    "url": ""
   },
   {
     "title": "Movie Trends Dashboard",
     "year": 2024,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A dashboard concept for exploring movie ratings and genres through charts and filters. Built with Python, pandas, and Tableau."
+    "description": "A dashboard concept for exploring movie ratings and genres through charts and filters. Built with Python, pandas, and Tableau.",
+    "url": ""
   },
   {
     "title": "Campus Garden Map",
     "year": 2024,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A map concept highlighting community gardens, native plants, and outdoor study areas around campus."
+    "description": "A map concept highlighting community gardens, native plants, and outdoor study areas around campus.",
+    "url": ""
   },
   {
     "title": "Ocean Conditions Snapshot",
     "year": 2024,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A sample dashboard for comparing surf conditions, tide levels, and water temperatures at local beaches."
+    "description": "A sample dashboard for comparing surf conditions, tide levels, and water temperatures at local beaches.",
+    "url": ""
   },
   {
     "title": "Food Waste Tracker",
     "year": 2024,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A prototype that summarizes cafeteria surplus and suggests ways to reduce food waste over time."
+    "description": "A prototype that summarizes cafeteria surplus and suggests ways to reduce food waste over time.",
+    "url": ""
   },
   {
     "title": "Transit Reliability Report",
     "year": 2023,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A visual report concept showing schedule reliability and average delays across sample bus routes."
+    "description": "A visual report concept showing schedule reliability and average delays across sample bus routes.",
+    "url": ""
   },
   {
     "title": "Weekend Hike Planner",
     "year": 2023,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A small planning tool concept for comparing trail length, elevation gain, and estimated travel time."
+    "description": "A small planning tool concept for comparing trail length, elevation gain, and estimated travel time.",
+    "url": ""
   },
   {
     "title": "Music Listening Patterns",
     "year": 2023,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A collection of charts exploring how listening habits shift across genres, days, and times of day."
+    "description": "A collection of charts exploring how listening habits shift across genres, days, and times of day.",
+    "url": ""
   },
   {
     "title": "Community Book Exchange",
     "year": 2023,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A website concept for finding, sharing, and recommending books at neighborhood exchange shelves."
+    "description": "A website concept for finding, sharing, and recommending books at neighborhood exchange shelves.",
+    "url": ""
   },
   {
     "title": "Air Quality Near Campus",
     "year": 2023,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A sample visualization for comparing air quality readings from several locations near campus."
+    "description": "A sample visualization for comparing air quality readings from several locations near campus.",
+    "url": ""
   },
   {
     "title": "Student Budget Planner",
     "year": 2023,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A simple tool concept that groups monthly expenses and helps students plan a realistic budget."
+    "description": "A simple tool concept that groups monthly expenses and helps students plan a realistic budget.",
+    "url": ""
   }
 ]
