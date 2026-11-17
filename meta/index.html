@@ -8,26 +8,45 @@
   <script type="module" src="../global.js"></script>
   <script type="module" src="main.js"></script>
 </head>
-<body>
+<body class="meta-page">
   <main>
     <h1>Meta</h1>
-    <p>A look at the code behind this portfolio and when I worked on it.</p>
+    <p>How this portfolio grew, one commit at a time. Scroll through the story to replay its evolution.</p>
     <p class="meta-note">This snapshot analyzes committed HTML, CSS, and JavaScript through October 25, 2026 (Lab 5). It counts lines still present in the codebase, not every historical edit.</p>
     <section aria-labelledby="stats-heading">
       <h2 id="stats-heading">Code at a glance</h2>
       <div id="stats" aria-live="polite">Loading code statistics…</div>
     </section>
-    <section aria-labelledby="chart-heading">
-      <h2 id="chart-heading">Commits by time of day</h2>
-      <p id="chart-help">Each circle is a commit; its area represents lines edited that remain in this snapshot. Hover or focus a circle for details. Drag across empty chart space to select commits.</p>
-      <p class="meta-note" id="timezone-note"></p>
-      <div id="chart"></div>
-      <div class="selection-toolbar">
-        <p id="selection-count" aria-live="polite">No commits selected</p>
-        <button id="clear-selection" type="button" disabled>Clear selection</button>
+    <section aria-labelledby="evolution-heading">
+      <h2 id="evolution-heading">A story in commits</h2>
+      <p>Scroll through the commit descriptions. The chart follows your place in the story; use the slider to explore any date yourself.</p>
+      <div id="scrolly-1">
+        <div id="scatter-story" aria-label="Commit story"></div>
+        <div id="scatter-plot">
+          <div class="timeline-controls">
+            <label for="commit-progress">Show commits until <time id="cutoff-time"></time></label>
+            <input id="commit-progress" type="range" min="0" max="100" step="any" value="100">
+            <div class="selection-toolbar"><p id="timeline-status" aria-live="polite"></p><button id="show-all" type="button">Show all</button></div>
+          </div>
+          <h2 id="chart-heading">Commits by time of day</h2>
+          <p id="chart-help">Each circle is a commit; its area represents lines edited that remain in this snapshot. Hover or focus a circle for details. Drag across empty chart space to select commits.</p>
+          <p class="meta-note" id="timezone-note"></p>
+          <div id="chart"></div>
+          <div class="selection-toolbar">
+            <p id="selection-count" aria-live="polite">No commits selected</p>
+            <button id="clear-selection" type="button" disabled>Clear selection</button>
+          </div>
+          <h3 class="selection-heading">Languages in selected commits</h3>
+          <dl id="language-breakdown" class="stats" aria-live="polite"></dl>
+        </div>
       </div>
-      <h3>Languages in selected commits</h3>
-      <dl id="language-breakdown" class="stats" aria-live="polite"></dl>
+    </section>
+    <section aria-labelledby="files-heading">
+      <h2 id="files-heading">The race for the biggest file</h2>
+      <p>One dot is one surviving line of code. Files are ranked by line count; colors identify the technology. Within each file, dots run from older to newer commits.</p>
+      <p id="file-summary" class="meta-note" aria-live="polite"></p>
+      <ul id="file-legend" aria-label="Technology colors"></ul>
+      <dl id="files"></dl>
     </section>
     <dl id="commit-tooltip" class="info tooltip" hidden>
       <dt>Commit</dt><dd><a id="commit-link" target="_blank" rel="noopener noreferrer"></a></dd>

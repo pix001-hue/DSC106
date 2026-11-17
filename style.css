@@ -468,3 +468,49 @@ dl.info dd { margin: 0; overflow-wrap: anywhere; }
 @media (max-width: 22em) {
   #stats .stats { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Lab 8: a shared timeline for the story, chart, and file units. */
+body.meta-page { max-width: 1250px; }
+#scrolly-1 { display: grid; grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.6fr); gap: 2rem; align-items: start; position: relative; }
+#scatter-story { min-width: 0; padding-bottom: 30vh; }
+#scatter-story .step { box-sizing: border-box; min-height: 75vh; margin: 0; padding: 2rem 1.25rem; border-left: 3px solid var(--border-color); opacity: 0.5; transition: opacity 200ms, border-color 200ms; }
+#scatter-story .step.is-active { opacity: 1; border-color: var(--color-accent); }
+.step-number { color: var(--color-accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; }
+.step time { color: var(--color-muted); font-size: 0.9rem; }
+.step a { color: var(--color-accent); }
+#scatter-plot { position: sticky; top: 1rem; box-sizing: border-box; max-height: calc(100dvh - 2rem); overflow-y: auto; padding: 1rem; border: 1px solid var(--border-color); border-radius: 0.75rem; background: canvas; }
+#scatter-plot h2 { font-size: 1.2rem; margin-top: 1rem; }
+#scatter-plot #chart-help, #scatter-plot .meta-note { font-size: 0.8rem; margin-block: 0.4rem; }
+.timeline-controls label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; font-size: 0.85rem; }
+#cutoff-time { font-weight: 650; }
+#commit-progress { display: block; width: 100%; margin: 0.8rem 0; cursor: pointer; }
+#timeline-status { margin: 0; font-size: 0.8rem; color: var(--color-muted); }
+#show-all { border: 1px solid var(--border-color); border-radius: 0.4rem; padding: 0.3rem 0.7rem; background: canvas; color: canvastext; font: inherit; font-size: 0.8rem; cursor: pointer; }
+#scatter-plot .selection-toolbar { font-size: 0.8rem; gap: 0.5rem; }
+#scatter-plot .selection-heading { font-size: 0.9rem; margin-block: 0.5rem; }
+#language-breakdown.stats { grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.4rem; margin: 0; }
+#language-breakdown.stats > div { padding: 0.5rem; }
+#language-breakdown.stats dd { font-size: 0.85rem; }
+#language-breakdown:empty::before { content: 'Brush the chart to compare languages.'; color: var(--color-muted); font-size: 0.8rem; }
+#chart circle { transition: cx 200ms ease, cy 200ms ease, r 200ms ease, transform 180ms ease, fill 180ms ease, fill-opacity 180ms ease; }
+@starting-style { #chart circle { r: 0; } }
+#file-legend { display: flex; flex-wrap: wrap; gap: 1rem; padding: 0; list-style: none; }
+#file-legend li { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+#files { display: grid; grid-template-columns: minmax(10rem, 1fr) 4fr; gap: 1rem; }
+#files .file-row { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; padding-block: 0.8rem; border-top: 1px solid var(--border-color); }
+#files dt { overflow-wrap: anywhere; }
+#files small { display: block; color: var(--color-muted); margin-top: 0.25rem; }
+#files dd { display: flex; flex-wrap: wrap; align-items: start; align-content: start; gap: 0.15em; margin: 0; padding-top: 0.35rem; }
+.loc { flex: 0 0 0.5em; width: 0.5em; aspect-ratio: 1; border-radius: 50%; background: var(--color); }
+@media (max-width: 48em) {
+  #scrolly-1 { display: flex; flex-direction: column; gap: 0; }
+  #scatter-plot { order: -1; width: 100%; flex-shrink: 0; top: 0; z-index: 2; max-height: 55dvh; padding: 0.65rem; }
+  #scatter-story { width: 100%; padding-bottom: 45vh; }
+  #scatter-story .step { min-height: 80vh; padding-top: 3rem; }
+  #scatter-plot #chart-help, #scatter-plot #timezone-note { display: none; }
+  #scatter-plot #chart svg { min-width: 0; max-height: 24dvh; }
+  #files { grid-template-columns: minmax(6rem, 1fr) 2fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #chart circle, #scatter-story .step { transition: none; }
+}
